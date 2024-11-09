@@ -18,6 +18,15 @@ class Product {
       this.#promotion
     }`;
   }
+
+  getProduct() {
+    return {
+      name: this.#name,
+      price: this.#price,
+      quantity: this.#quantity,
+      promotion: this.#promotion,
+    };
+  }
 }
 
 export default Product;
