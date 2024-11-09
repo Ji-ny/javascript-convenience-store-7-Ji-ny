@@ -6,7 +6,7 @@ class Product {
   #quantity;
   #promotion; // Promotion
 
-  constructor(name, price, quantity, promotion) {
+  constructor(name, price, quantity, promotion = null, promotionQuantity = 0) {
     this.#name = name;
     this.#price = price;
     this.#quantity = quantity;

@@ -6,7 +6,6 @@ class Promotion {
   #get;
   #start_data;
   #end_data;
-  #quantity; // 프로모션 개수 추가.
 
   constructor(name, buy, get, start_data, end_data, quantity) {
     this.#name = name;
@@ -14,13 +13,12 @@ class Promotion {
     this.#get = get;
     this.#start_data = start_data;
     this.#end_data = end_data;
-    this.#quantity = quantity;
   }
 
   toString() {
     return `promotion : ${this.#name} ${this.#buy} ${this.#get} ${
       this.#start_data
-    } ${this.#end_data} ${this.#quantity}`;
+    } ${this.#end_data}`;
   }
 
   getPromotion() {
@@ -30,7 +28,6 @@ class Promotion {
       get: this.#get,
       start_data: this.#start_data,
       end_data: this.#end_data,
-      quantity: this.#quantity,
     };
   }
 }
