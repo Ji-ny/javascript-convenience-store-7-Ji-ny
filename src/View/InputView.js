@@ -3,8 +3,19 @@ import { MissionUtils } from "@woowacourse/mission-utils";
 export const InputView = {
   async readItem() {
     const input = await MissionUtils.Console.readLineAsync(
-      "구매하실 상품명과 수량을 입력해 주세요. (예: [사이다-2],[감자칩-1])"
+      `구매하실 상품명과 수량을 입력해 주세요. (예: [사이다-2],[감자칩-1])\n`
     );
+
+    const pattern = /(\[[가-힣]+-\d\]),?/g;
+
+    const result = input.replace(pattern, "").trim();
+
+    if (result) {
+      throw new Error(
+        "[ERROR] 올바르지 않은 형식으로 입력했습니다. 다시 입력해 주세요."
+      );
+    }
+
     // ...
   },
 

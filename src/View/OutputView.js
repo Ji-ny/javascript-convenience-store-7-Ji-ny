@@ -2,7 +2,6 @@ import { Console, MissionUtils } from "@woowacourse/mission-utils";
 
 export const OutputView = {
   printProducts(productDatas) {
-    // MissionUtils.Console.print("- 콜라 1,000원 10개 탄산2+1");
     MissionUtils.Console.print(
       `안녕하세요. W편의점입니다.\n현재 보유하고 있는 상품입니다.\n`
     );
@@ -10,6 +9,8 @@ export const OutputView = {
     productDatas.forEach((product) => {
       Console.print(product.toString());
     });
+
+    Console.print("");
 
     // ...
   },

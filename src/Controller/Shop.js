@@ -1,5 +1,6 @@
 import Product from "../Model/Product.js";
 import Promotion from "../Model/Promotion.js";
+import { InputView } from "../View/InputView.js";
 import { OutputView } from "../View/OutputView.js";
 import { readFile } from "./fileFunctions.js";
 
@@ -8,6 +9,8 @@ class Shop {
     const productDatas = this.createProductDatas();
     const promotionDatas = this.createPromotionDatas();
     OutputView.printProducts(productDatas);
+
+    InputView.readItem();
   }
 
   createProductDatas = () => {
