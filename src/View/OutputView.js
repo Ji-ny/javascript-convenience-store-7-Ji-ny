@@ -2,17 +2,23 @@ import { Console, MissionUtils } from "@woowacourse/mission-utils";
 
 export const OutputView = {
   printProducts(productDatas) {
-    MissionUtils.Console.print(
-      `안녕하세요. W편의점입니다.\n현재 보유하고 있는 상품입니다.\n`
-    );
+    // MissionUtils.Console.print(
+    //   `안녕하세요. W편의점입니다.\n현재 보유하고 있는 상품입니다.\n`
+    // );
+    const checkQuantityZero = (quantity) => {
+      if (quantity == 0) {
+        return "재고 없음";
+      }
+      return `${quantity}개`;
+    };
 
     productDatas.forEach((product) => {
-      Console.print(
-        `${product.getProduct().name} ${product
+      MissionUtils.Console.print(
+        `- ${product.getProduct().name} ${product
           .getProduct()
-          .price.toLocaleString("ko-KR")} ${product.getProduct().quantity} ${
-          product.getProduct().promotion
-        }`
+          .price.toLocaleString("ko-KR")}원 ${checkQuantityZero(
+          product.getProduct().quantity
+        )} ${product.getProduct().promotion}`
       );
     });
 

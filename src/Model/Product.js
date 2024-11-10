@@ -6,11 +6,11 @@ class Product {
   #quantity;
   #promotion; // Promotion
 
-  constructor(name, price, quantity, promotion = null, promotionQuantity = 0) {
+  constructor(name, price, quantity, promotion, promotionQuantity = 0) {
     this.#name = name;
     this.#price = Number(price);
     this.#quantity = Number(quantity);
-    this.#promotion = promotion; //프로모션 객체
+    this.#promotion = this.checkNull(promotion); //프로모션 객체
   }
 
   toString() {
@@ -26,6 +26,13 @@ class Product {
       quantity: this.#quantity,
       promotion: this.#promotion,
     };
+  }
+
+  checkNull(promotion) {
+    if (promotion === "null") {
+      return "";
+    }
+    return promotion;
   }
 }
 
