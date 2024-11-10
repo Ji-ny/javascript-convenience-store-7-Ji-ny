@@ -14,7 +14,7 @@ class Product {
   }
 
   toString() {
-    return `product : ${this.#name} ${this.#price} ${this.#quantity} ${
+    return `- ${this.#name} ${this.#price}원 ${this.#quantity}개 ${
       this.#promotion
     }`;
   }
