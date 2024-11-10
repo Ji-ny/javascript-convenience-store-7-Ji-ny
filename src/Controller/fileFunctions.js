@@ -8,7 +8,6 @@ export const readFile = (filePath) => {
       .toString()
       .split("\r\n")
       .map((item) => item.split(","));
-    console.log(fileData);
     return fileData;
   } catch (err) {
     console.error(err);

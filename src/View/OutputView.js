@@ -7,7 +7,13 @@ export const OutputView = {
     );
 
     productDatas.forEach((product) => {
-      Console.print(product.toString());
+      Console.print(
+        `${product.getProduct().name} ${product
+          .getProduct()
+          .price.toLocaleString("ko-KR")} ${product.getProduct().quantity} ${
+          product.getProduct().promotion
+        }`
+      );
     });
 
     Console.print("");

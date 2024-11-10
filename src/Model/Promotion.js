@@ -9,8 +9,8 @@ class Promotion {
 
   constructor(name, buy, get, start_data, end_data, quantity) {
     this.#name = name;
-    this.#buy = buy;
-    this.#get = get;
+    this.#buy = Number(buy);
+    this.#get = Number(get);
     this.#start_data = start_data;
     this.#end_data = end_data;
   }

@@ -8,8 +8,8 @@ class Product {
 
   constructor(name, price, quantity, promotion = null, promotionQuantity = 0) {
     this.#name = name;
-    this.#price = price;
-    this.#quantity = quantity;
+    this.#price = Number(price);
+    this.#quantity = Number(quantity);
     this.#promotion = promotion; //프로모션 객체
   }
 

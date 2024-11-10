@@ -7,7 +7,7 @@ class BuyProduct {
 
   constructor(name, count) {
     this.#name = name;
-    this.#count = count;
+    this.#count = Number(count);
   }
 
   toString() {
@@ -19,7 +19,7 @@ class BuyProduct {
   }
 
   setCount(count) {
-    this.#count = count;
+    this.#count = Number(count);
   }
 
   getBuyProduct() {
