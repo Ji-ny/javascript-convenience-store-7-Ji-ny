@@ -27,7 +27,8 @@ export const OutputView = {
     // ...
   },
 
-  printReceipt() {
+  // 총 구매 물건, 총 가격, 총 수량
+  printReceipt(buyProducts, totalAmount, totalQuantity) {
     MissionUtils.Console.print(`
         ==============W 편의점================
         상품명		수량	금액
@@ -36,7 +37,7 @@ export const OutputView = {
         =============증	정===============
         콜라		1
         ====================================
-        총구매액		8	13,000
+        총구매액		${totalQuantity}	${totalAmount.toLocaleString("ko-KR")}
         행사할인			-1,000
         멤버십할인			-3,000
         내실돈			 9,000`);
