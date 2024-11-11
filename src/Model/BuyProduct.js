@@ -3,12 +3,14 @@ import { Console } from "@woowacourse/mission-utils";
 class BuyProduct {
   #name;
   #quantity;
-  #price = 0;
-  #totalPrice = 0;
+  #price;
+  #totalPrice;
 
-  constructor(name, count) {
+  constructor(name, quantity, price = 0, totalPrice = 0) {
     this.#name = name;
-    this.#quantity = Number(count);
+    this.#quantity = Number(quantity);
+    this.#price = price;
+    this.#totalPrice = totalPrice;
   }
 
   toString() {
@@ -19,8 +21,8 @@ class BuyProduct {
     );
   }
 
-  setCount(count) {
-    this.#quantity = Number(count);
+  setQuantity(quantity) {
+    this.#quantity = Number(quantity);
   }
 
   setPrice(price) {

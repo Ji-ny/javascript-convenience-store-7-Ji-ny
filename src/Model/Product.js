@@ -10,7 +10,7 @@ class Product {
     this.#name = name;
     this.#price = Number(price);
     this.#quantity = Number(quantity);
-    this.#promotion = this.checkNull(promotion); //프로모션 객체
+    this.#promotion = promotion; //프로모션 객체
   }
 
   toString() {
@@ -26,13 +26,6 @@ class Product {
       quantity: this.#quantity,
       promotion: this.#promotion,
     };
-  }
-
-  checkNull(promotion) {
-    if (promotion === "null") {
-      return "";
-    }
-    return promotion;
   }
 }
 

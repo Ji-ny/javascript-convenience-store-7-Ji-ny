@@ -12,13 +12,20 @@ export const OutputView = {
       return `${quantity}개`;
     };
 
+    const checkNull = (promotion) => {
+      if (promotion == "null") {
+        return "";
+      }
+      return promotion;
+    };
+
     productDatas.forEach((product) => {
       MissionUtils.Console.print(
         `- ${product.getProduct().name} ${product
           .getProduct()
           .price.toLocaleString("ko-KR")}원 ${checkQuantityZero(
           product.getProduct().quantity
-        )} ${product.getProduct().promotion}`
+        )} ${checkNull(product.getProduct().promotion)}`
       );
     });
 
@@ -32,7 +39,9 @@ export const OutputView = {
     buyProducts,
     totalAmount,
     totalQuantity,
-    membershipDiscountPrice
+    membershipDiscountPrice,
+    promotionDiscountPrice, // 포로모션으로 얻는 가격 (행사할인)
+    promotionGetProducts // 프로모션으로 얻는 상품들 (BuyProduct )
   ) {
     MissionUtils.Console.print(`
         ==============W 편의점================
@@ -46,10 +55,15 @@ ${buyProducts
   })
   .join("\n")}
         =============증	정===============
-        콜라		1
+${promotionGetProducts
+  .map((promotionGetProduct) => {
+    const promotionGetProductItem = promotionGetProduct.getBuyProduct();
+    return `        ${promotionGetProductItem.name}		${promotionGetProductItem.quantity}`;
+  })
+  .join("\n")}
         ====================================
         총구매액		${totalQuantity}	${totalAmount.toLocaleString("ko-KR")}
-        행사할인			-1,000
+        행사할인			-${promotionDiscountPrice.toLocaleString("ko-KR")}
         멤버십할인			-${membershipDiscountPrice.toLocaleString("ko-KR")}
         내실돈			 9,000`);
   },
