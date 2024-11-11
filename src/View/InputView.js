@@ -1,4 +1,5 @@
-import { MissionUtils } from "@woowacourse/mission-utils";
+import { Console, MissionUtils } from "@woowacourse/mission-utils";
+import BuyProduct from "../Model/BuyProduct.js";
 
 export const InputView = {
   async readBuyItem() {
@@ -15,8 +16,17 @@ export const InputView = {
         "[ERROR] 올바르지 않은 형식으로 입력했습니다. 다시 입력해 주세요."
       );
     }
+    const resultArray = input.split(",").map((item) => {
+      const [name, quantity] = item
+        .replace("[", "")
+        .replace("]", "")
+        .split("-");
+      return new BuyProduct(name, parseInt(quantity, 10));
+    });
 
-    // ...
+    // Console.print(resultArray[0].toString());
+
+    return resultArray;
   },
 
   async promotionAddInput({ 상품명 = "에너지바" }) {

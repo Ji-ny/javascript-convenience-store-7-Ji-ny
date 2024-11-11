@@ -2,31 +2,25 @@ import { Console } from "@woowacourse/mission-utils";
 
 class BuyProduct {
   #name;
-  #count;
-  #totalPrize = 0;
+  #quantity;
 
   constructor(name, count) {
     this.#name = name;
-    this.#count = Number(count);
+    this.#quantity = Number(count);
   }
 
   toString() {
-    Console.print(`${this.#name} ${this.#count} ${this.#totalPrize}`);
-  }
-
-  setTotalPrize(totalPrize) {
-    this.#totalPrize = totalPrize;
+    Console.print(`${this.#name} ${this.#quantity}`);
   }
 
   setCount(count) {
-    this.#count = Number(count);
+    this.#quantity = Number(count);
   }
 
   getBuyProduct() {
     return {
       name: this.#name,
-      count: this.#count,
-      totalPrize: tthis.#totalPrize,
+      count: this.#quantity,
     };
   }
 }

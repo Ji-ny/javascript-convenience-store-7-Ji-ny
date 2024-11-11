@@ -10,7 +10,7 @@ class Shop {
     const promotionDatas = this.createPromotionDatas();
     OutputView.printProducts(productDatas);
 
-    InputView.readBuyItem();
+    const buyProducts = InputView.readBuyItem();
   }
 
   createProductDatas = () => {
