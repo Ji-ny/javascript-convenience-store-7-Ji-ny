@@ -27,8 +27,13 @@ export const OutputView = {
     // ...
   },
 
-  // 총 구매 물건, 총 가격, 총 수량
-  printReceipt(buyProducts, totalAmount, totalQuantity) {
+  // 총 구매 물건, 총 가격, 총 수량, 멤버십 할인 가격
+  printReceipt(
+    buyProducts,
+    totalAmount,
+    totalQuantity,
+    membershipDiscountPrice
+  ) {
     MissionUtils.Console.print(`
         ==============W 편의점================
         상품명		수량	금액
@@ -45,7 +50,7 @@ ${buyProducts
         ====================================
         총구매액		${totalQuantity}	${totalAmount.toLocaleString("ko-KR")}
         행사할인			-1,000
-        멤버십할인			-3,000
+        멤버십할인			-${membershipDiscountPrice.toLocaleString("ko-KR")}
         내실돈			 9,000`);
   },
   // ...

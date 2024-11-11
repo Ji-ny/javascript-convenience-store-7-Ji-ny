@@ -7,6 +7,7 @@ import { readFile } from "./fileFunctions.js";
 
 class Shop {
   async start() {
+    let noPromosionTotalAmount = 10000; // 프로모션 제외한 가격
     const productDatas = this.createProductDatas();
     const promotionDatas = this.createPromotionDatas();
     OutputView.printProducts(productDatas);
@@ -19,9 +20,23 @@ class Shop {
       promotionDatas
     );
 
-    Console.print(`${totalAmount}원, ${totalQuantity}개`);
+    // * 멤버쉽
+    const isMemberShipYesOrNo = await InputView.membershipInput();
+    const membershipDiscountPrice = this.calculateMemberShipTotalAmount(
+      noPromosionTotalAmount,
+      isMemberShipYesOrNo
+    );
 
-    OutputView.printReceipt(buyProducts, totalAmount, totalQuantity);
+    Console.print(noPromosionTotalAmount, membershipDiscountPrice);
+
+    // Console.print(`${totalAmount}원, ${totalQuantity}개`);
+
+    OutputView.printReceipt(
+      buyProducts,
+      totalAmount,
+      totalQuantity,
+      membershipDiscountPrice
+    );
     // 계산을 하자.
   }
 
@@ -88,6 +103,23 @@ class Shop {
 
     return { totalAmount, totalQuantity };
   };
+
+  // 멤버심 프로모션 금액 결과 저장
+  calculateMemberShipTotalAmount(noPromosionTotalAmount, isMemberShipYesOrNo) {
+    let membershipDiscountPrice = 0;
+
+    const maxDiscountPrice = 8000;
+    if (isMemberShipYesOrNo === "Y") {
+      // 멤버십 회원은 프로모션 적용 후 남은 금액에 대해 멤버십 할인을 적용한다.
+      membershipDiscountPrice = noPromosionTotalAmount * 0.3;
+
+      if (membershipDiscountPrice >= maxDiscountPrice) {
+        membershipDiscountPrice = 8000; // 8000원을 넘기면 return
+      }
+    }
+
+    return membershipDiscountPrice;
+  }
 }
 
 export default Shop;
