@@ -32,8 +32,14 @@ export const OutputView = {
     MissionUtils.Console.print(`
         ==============W 편의점================
         상품명		수량	금액
-        콜라		3 	3,000
-        에너지바 		5 	10,000
+${buyProducts
+  .map((buyProduct) => {
+    const buyProductItem = buyProduct.getBuyProduct();
+    return `        ${buyProductItem.name}		${
+      buyProductItem.quantity
+    } 	${buyProductItem.totalPrice.toLocaleString("ko-KR")}`;
+  })
+  .join("\n")}
         =============증	정===============
         콜라		1
         ====================================
