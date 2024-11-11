@@ -1,7 +1,7 @@
 # javascript-convenience-store-precourse
 
 # 🍜 편의점 🥪
-
+## 1️⃣ 기능 정리
 ### 1. 재고 수량 계산
 
 1. 일반 재고 (products.md)
@@ -109,3 +109,20 @@
 Y
 
 ```
+
+
+## 2️⃣ 결과 정리
+
+### 1. 실행 결과
+
+- [product.md] 파일을 읽어와서 상품을 출력하고, 사용자가 입력한 상품과 개수를 계산한 뒤 프로모션을 적용해서 영수증을 출력합니다.
+![image](https://github.com/user-attachments/assets/98ca96ad-c8b9-4a51-92bb-450fbdfed5bf)
+
+### 2. 폴더 구조
+- MVC 패턴을 적용하여, View와 비즈니스 로직을 분리했습니다.
+- 입력부분과 비즈니스 로직을 분리한 건 처음이여서, 설계하는데 많은 어려움이 있었습니다.
+  
+![image](https://github.com/user-attachments/assets/a7048f19-8ece-4b1d-b272-1ae926c45f6b)
+
+
+
